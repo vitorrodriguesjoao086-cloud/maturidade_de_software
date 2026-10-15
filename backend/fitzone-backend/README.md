@@ -1,6 +1,6 @@
-# FITZONE — Backend PHP
+# FITZONE — Plataforma de academia
 
-Backend REST para o sistema de academia inspirado no protótipo enviado no ZIP.
+API REST PHP e frontend responsivo para gerenciamento de treinos de academia.
 
 ## O que já está implementado
 
@@ -27,8 +27,11 @@ fitzone-backend/
 ├── database/
 │   └── schema.sql
 ├── public/
+│   ├── app.js
+│   ├── index.html
 │   ├── .htaccess
-│   └── index.php
+│   ├── index.php
+│   └── styles.css
 └── README.md
 ```
 
@@ -72,6 +75,10 @@ A API ficará em:
 ```text
 http://localhost:8000
 ```
+
+Abra o mesmo endereço no navegador para acessar o frontend FitZone. O frontend e a API são servidos pelo mesmo projeto e usam a sessão autenticada para chamar os endpoints.
+
+O frontend oferece cadastro e login de alunos e professores. Alunos podem consultar e montar seus próprios treinos; professores podem acompanhar alunos e montar planos para eles. O catálogo compartilhado permite filtrar exercícios por grupo muscular.
 
 ## 3. Usuários de teste
 
@@ -201,6 +208,7 @@ O aluno não precisa enviar `user_id`; o backend usa automaticamente o usuário 
 - `teacher`: acessa os alunos e pode criar/editar planos de qualquer aluno.
 - O catálogo de exercícios é compartilhado.
 - A API não expõe `password_hash` nas respostas.
+- Interface web para login/cadastro, treinos, catálogo de exercícios e acompanhamento de alunos.
 
 ## Próximos passos sugeridos
 

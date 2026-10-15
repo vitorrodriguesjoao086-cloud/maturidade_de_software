@@ -2,6 +2,20 @@
 
 declare(strict_types=1);
 
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+if ($requestPath === '/' || $requestPath === '/index.html') {
+    header('Content-Type: text/html; charset=utf-8');
+    readfile(__DIR__ . '/index.html');
+    exit;
+}
+
+if (PHP_SAPI === 'cli-server') {
+    $staticFile = realpath(__DIR__ . $requestPath);
+    if ($staticFile !== false && str_starts_with($staticFile, realpath(__DIR__) . DIRECTORY_SEPARATOR) && is_file($staticFile)) {
+        return false;
+    }
+}
+
 $config = require __DIR__ . '/../config/config.php';
 
 header('Content-Type: application/json; charset=utf-8');

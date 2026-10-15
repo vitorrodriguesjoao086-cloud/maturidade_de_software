@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10130f">
+  <meta name="description" content="Seu espaço para treinar, evoluir e acompanhar seus resultados.">
+  <title>FitZone — Treino com propósito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-visual">
+      <a class="brand brand-light" href="/" aria-label="FitZone início">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 13h4v6H5zm18 0h4v6h-4zM10 11h3v10h-3zm9 0h3v10h-3zM13 14h6v4h-6z"/></svg></span>
+        <span>fit<span>zone</span></span>
+      </a>
+      <div class="visual-copy">
+        <span class="eyebrow"><span class="pulse-dot"></span> O seu próximo nível começa aqui</span>
+        <h1>Força para<br>ir <span>mais longe.</span></h1>
+        <p>Treinos pensados para você. Progresso que dá para sentir.</p>
+      </div>
+      <div class="visual-bottom">
+        <div class="quote-mark">“</div>
+        <blockquote>Disciplina é escolher entre o que você quer agora e o que você mais quer.</blockquote>
+        <div class="visual-caption"><span class="caption-line"></span> SUA JORNADA, NO SEU RITMO</div>
+      </div>
+      <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-mobile-brand brand"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 13h4v6H5zm18 0h4v6h-4zM10 11h3v10h-3zm9 0h3v10h-3zM13 14h6v4h-6z"/></svg></span><span>fit<span>zone</span></span></div>
+      <div class="auth-form-wrap">
+        <div class="auth-heading">
+          <span class="eyebrow" id="auth-eyebrow">BOM TER VOCÊ DE VOLTA</span>
+          <h2 id="auth-title">Entre na sua conta</h2>
+          <p id="auth-subtitle">Acesse seus treinos e continue evoluindo.</p>
+        </div>
+        <form id="login-form" class="auth-form">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
+          <div class="label-row"><label for="login-password">Senha</label><span class="field-hint">Mínimo de 6 caracteres</span></div>
+          <input id="login-password" name="password" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+          <button class="button button-primary button-full" type="submit">Entrar na minha conta <span aria-hidden="true">→</span></button>
+        </form>
+        <form id="register-form" class="auth-form hidden">
+          <label for="register-name">Nome completo</label>
+          <input id="register-name" name="name" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required>
+          <label for="register-email">E-mail</label>
+          <input id="register-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
+          <label for="register-password">Senha</label>
+          <input id="register-password" name="password" type="password" placeholder="Pelo menos 6 caracteres" minlength="6" autocomplete="new-password" required>
+          <label for="register-role">Quero acessar como</label>
+          <select id="register-role" name="role"><option value="student">Aluno(a)</option><option value="teacher">Professor(a)</option></select>
+          <button class="button button-primary button-full" type="submit">Criar minha conta <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="auth-switch"><span id="auth-switch-copy">Ainda não tem uma conta?</span> <button id="auth-switch" class="text-button" type="button">Criar conta</button></p>
+        <div class="auth-note"><span class="lock-icon">✓</span> Seus dados e sua jornada estão protegidos.</div>
+      </div>
+      <div class="auth-footer">© <span id="copyright-year"></span> FitZone <span>Feito para a sua evolução.</span></div>
+    </section>
+  </main>
+
+  <div id="app-screen" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <a class="brand brand-light sidebar-brand" href="#" data-view="overview">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 13h4v6H5zm18 0h4v6h-4zM10 11h3v10h-3zm9 0h3v10h-3zM13 14h6v4h-6z"/></svg></span>
+        <span>fit<span>zone</span></span>
+      </a>
+      <div class="sidebar-label">MENU PRINCIPAL</div>
+      <nav class="main-nav" aria-label="Menu principal">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">⌂</span> Visão geral</button>
+        <button class="nav-item" data-view="plans"><span class="nav-icon">▤</span> Meus treinos</button>
+        <button class="nav-item teacher-only hidden" data-view="students"><span class="nav-icon">♧</span> Alunos</button>
+        <button class="nav-item" data-view="exercises"><span class="nav-icon">◉</span> Exercícios</button>
+      </nav>
+      <div class="sidebar-tip">
+        <span class="tip-icon">✳</span>
+        <p>Pequenos passos<br>também levam longe.</p>
+        <span class="tip-caption">MANTENHA O FOCO</span>
+      </div>
+      <div class="sidebar-profile">
+        <div id="sidebar-avatar" class="avatar">F</div>
+        <div class="profile-copy"><strong id="sidebar-name">FitZone</strong><span id="sidebar-role">Aluno</span></div>
+        <button id="logout-button" class="icon-button logout-button" title="Sair da conta" aria-label="Sair da conta">↗</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button id="menu-toggle" class="icon-button mobile-menu" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span>FitZone</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">Visão geral</strong></div>
+        <div class="topbar-right"><span class="today-date" id="today-date"></span><div class="topbar-avatar" id="topbar-avatar">F</div></div>
+      </header>
+      <div class="page-container">
+        <section id="view-overview" class="view-section">
+          <div class="welcome-row">
+            <div><span class="eyebrow" id="welcome-eyebrow">QUARTA-FEIRA, 15 DE OUTUBRO</span><h1 id="welcome-title">Olá, atleta <span class="wave">✳</span></h1><p id="welcome-subtitle">Pronto para dar o próximo passo hoje?</p></div>
+            <button id="create-plan-button" class="button button-primary"><span class="plus">+</span> Novo treino</button>
+          </div>
+          <div class="hero-card">
+            <div class="hero-content"><span class="hero-kicker"><span class="pulse-dot"></span> SUA JORNADA CONTINUA</span><h2>O progresso acontece<br><span>um treino de cada vez.</span></h2><p>Consistência é o seu superpoder. Vamos treinar?</p><button class="button button-light" data-view="plans">Ver meus treinos <span>→</span></button></div>
+            <div class="hero-art" aria-hidden="true"><div class="hero-ring ring-back"></div><div class="hero-ring ring-front"></div><div class="hero-dumbbell">✳</div><span class="art-label">NO<br>SEU<br>RITMO</span></div>
+            <div class="hero-index">01 <span>/ 03</span></div>
+          </div>
+          <div class="section-heading"><div><h2>Seu resumo</h2><p>Um olhar sobre a sua jornada.</p></div><span class="section-date">ATUALIZADO AGORA</span></div>
+          <div class="stats-grid" id="stats-grid"></div>
+          <div class="dashboard-columns">
+            <section class="content-card recent-card"><div class="card-heading"><div><h3>Seus treinos</h3><p>Continue de onde parou.</p></div><button class="link-button" data-view="plans">Ver todos <span>→</span></button></div><div id="recent-plans" class="plan-list"></div></section>
+            <section class="content-card motivation-card"><div class="motivation-symbol">✳</div><span class="eyebrow">LEMBRETE DO DIA</span><h3>O melhor treino<br>é aquele que você faz.</h3><p>Não precisa ser perfeito. Só precisa começar.</p><div class="motivation-line"></div><span class="motivation-caption">UM DIA DE CADA VEZ.</span></section>
+          </div>
+        </section>
+
+        <section id="view-plans" class="view-section hidden">
+          <div class="welcome-row page-title-row"><div><span class="eyebrow">CONSISTÊNCIA QUE TRANSFORMA</span><h1>Meus treinos</h1><p>Seus planos, organizados para você evoluir.</p></div><button class="button button-primary" id="create-plan-button-secondary"><span class="plus">+</span> Criar treino</button></div>
+          <div id="plans-grid" class="plans-grid"></div>
+          <div id="plans-empty" class="empty-state hidden"><div class="empty-symbol">✳</div><h3>Seu próximo treino começa aqui.</h3><p>Crie seu primeiro plano e dê início a uma nova etapa.</p><button class="button button-primary" data-action="create-plan"><span class="plus">+</span> Criar meu treino</button></div>
+        </section>
+
+        <section id="view-students" class="view-section hidden">
+          <div class="welcome-row page-title-row"><div><span class="eyebrow">GESTÃO DE ACOMPANHAMENTO</span><h1>Seus alunos</h1><p>Acompanhe quem está construindo uma rotina mais forte.</p></div><span class="student-count" id="student-count">0 alunos</span></div>
+          <div class="content-card student-card"><div class="card-heading"><div><h3>Todos os alunos</h3><p>Alunos ativos na plataforma.</p></div><label class="search-box"><span>⌕</span><input id="student-search" type="search" placeholder="Buscar aluno..." aria-label="Buscar aluno"></label></div><div class="table-wrap"><table><thead><tr><th>ALUNO</th><th>E-MAIL</th><th>TELEFONE</th><th>PLANOS</th><th></th></tr></thead><tbody id="students-table"></tbody></table></div><div id="students-empty" class="empty-state hidden"><div class="empty-symbol">♧</div><h3>Nenhum aluno por aqui ainda.</h3><p>Os alunos cadastrados aparecerão nesta lista.</p></div></div>
+        </section>
+
+        <section id="view-exercises" class="view-section hidden">
+          <div class="welcome-row page-title-row"><div><span class="eyebrow">MOVIMENTO COM PROPÓSITO</span><h1>Catálogo de exercícios</h1><p>Encontre o movimento certo para o seu próximo treino.</p></div></div>
+          <div class="exercise-toolbar"><div class="exercise-filters" id="exercise-filters"></div><span id="exercise-count" class="section-date"></span></div>
+          <div id="exercises-grid" class="exercises-grid"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="plan-dialog" class="modal">
+    <form id="plan-form" method="dialog">
+      <div class="modal-header"><div><span class="eyebrow">UM BOM PLANO FAZ DIFERENÇA</span><h2 id="plan-dialog-title">Criar treino</h2></div><button class="icon-button modal-close" type="button" data-close-dialog aria-label="Fechar">×</button></div>
+      <input type="hidden" name="id">
+      <label for="plan-name">Nome do treino</label><input id="plan-name" name="name" type="text" placeholder="Ex.: Treino de força A" required maxlength="150">
+      <label for="plan-goal">Objetivo</label><input id="plan-goal" name="goal" type="text" placeholder="Ex.: Ganho de força">
+      <label for="plan-description">Descrição</label><textarea id="plan-description" name="description" rows="3" placeholder="Um pouco sobre este treino..."></textarea>
+      <div id="plan-student-field" class="teacher-only hidden"><label for="plan-student">Aluno</label><select id="plan-student" name="user_id"></select></div>
+      <label for="plan-status">Status</label><select id="plan-status" name="status"><option value="draft">Rascunho</option><option value="active">Ativo</option><option value="archived">Arquivado</option></select>
+      <div class="modal-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancelar</button><button class="button button-primary" type="submit">Salvar treino <span>→</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog id="detail-dialog" class="modal detail-modal">
+    <div id="plan-detail"></div>
+  </dialog>
+</body>
+</html>
